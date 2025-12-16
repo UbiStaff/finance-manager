@@ -1,8 +1,13 @@
 # Personal Finance Manager
 
-中文 | English
-- 中文说明请查看 `README_CN.md`
-- For English README, see below
+<p align="right">
+  <a href="README_CN.md">简体中文</a> · <a href="README.md">English</a>
+</p>
+
+<p>
+  <a href="README_CN.md"><img src="https://img.shields.io/badge/语言-中文-blue" alt="中文" /></a>
+  <a href="README.md"><img src="https://img.shields.io/badge/Language-English-red" alt="English" /></a>
+</p>
 
 ## Overview
 Personal finance web app with income/expense records, category/account management, charts, and import/export.
@@ -41,7 +46,7 @@ Personal finance web app with income/expense records, category/account managemen
 ## Changelog
 - See `CHANGELOG.md` (current version v1.0.0)
 
-For full Chinese documentation, open `README_CN.md`.
+Quick language switch: [简体中文](README_CN.md) · [English](README.md)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -1,5 +1,14 @@
 # 个人收支管理系统
 
+<p align="right">
+  <a href="README_CN.md">简体中文</a> · <a href="README.md">English</a>
+</p>
+
+<p>
+  <a href="README_CN.md"><img src="https://img.shields.io/badge/语言-中文-blue" alt="中文" /></a>
+  <a href="README.md"><img src="https://img.shields.io/badge/Language-English-red" alt="English" /></a>
+</p>
+
 本项目是一个基于 Web 的个人记账系统，支持收支记录、分类统计、报表展示、数据导入/导出，并内置隐私脱敏能力。
 
 ## 技术栈

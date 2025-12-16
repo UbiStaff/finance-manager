@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  username     String        @unique
+  password     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+  categories   Category[]
+  accounts     Account[]
+}
+
+model Category {
+  id           Int           @id @default(autoincrement())
+  name         String
+  type         String        // 'income' or 'expense'
+  userId       Int
+  user         User          @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+  
+  @@index([userId])
+}
+
+model Account {
+  id           Int           @id @default(autoincrement())
+  name         String        // e.g. 'Alipay', 'WeChat', 'Bank Card *1234'
+  userId       Int
+  user         User          @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+
+  @@index([userId])
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  type        String   // 'income' or 'expense'
+  time        DateTime
+  note        String?
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  accountId   Int
+  account     Account  @relation(fields: [accountId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([time])
+  @@index([categoryId])
+  @@index([accountId])
+  @@index([userId])
+}

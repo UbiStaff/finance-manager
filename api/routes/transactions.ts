@@ -87,8 +87,6 @@ async function getOrCreateAccount(name: string, userId: number) {
 function sanitizeAccountName(name?: string): string {
   const raw = (name || '').trim();
   if (!raw) return '现金';
-  // specific privacy remap
-  if (/工商银行/.test(raw) && /7934/.test(raw)) return '建设银行储蓄卡（1234）';
   // keep well-known wallets unmasked
   if (/支付宝|Alipay/i.test(raw)) return '支付宝';
   if (/微信钱包/.test(raw)) return '微信钱包';
